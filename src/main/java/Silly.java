@@ -80,8 +80,15 @@ public class Silly implements Comparable<Silly>{
      *       Make sure you document this method!
      */
 
-
-
+    /**
+     * (Hopefully) Returns what the task is asking for.
+     *
+     * @param first_string it's the first string
+     * @param second_string it's the second string
+     */
+    public Silly(String first_string, String second_string) {
+        this.name = first_string + second_string;
+    }
 
 
     public static void main(String[] args) {
@@ -116,7 +123,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -125,7 +132,7 @@ public class Silly implements Comparable<Silly>{
      * 3. Whenever we try to build a string with an Object, the toString()
      *    method is called. This is equivalent to the __str__ method in Python.
      *
-     *    (Relevant reading: 2.3. toString)
+     *    (Relevant reading: 2.3. toString) --------> This isn't in 2.3. It's in 2.6.1?
      *
      * Return the String representation of this Silly object (i.e. its name).
      *
@@ -134,6 +141,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -148,6 +156,7 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public boolean equals(Object o) {
+
         /**
          * TODO (Task 4): Complete the body of this method!
          *                We've started it by checking the type of o for you.
@@ -161,6 +170,8 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+
+        return other.name.equals(this.name);
     }
 
     /**
@@ -194,6 +205,14 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+
+        if (this.name.length() > other.name.length()) {
+            return 1;
+        } else if (this.name.length() < other.name.length()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     /*
