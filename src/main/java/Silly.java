@@ -40,7 +40,6 @@ public class Silly implements Comparable<Silly>{
 
         return to_return;
     }
-
     /**
      * 2. Java allows for us to overload methods: this means we can have
      *    multiple methods of the same name, but which take different
@@ -127,6 +126,7 @@ public class Silly implements Comparable<Silly>{
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
+     // Mildly confused over what countStatic does.
 
     /**
      * 3. Whenever we try to build a string with an Object, the toString()
